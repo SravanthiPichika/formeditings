@@ -14,9 +14,26 @@ function Textform(props) {
     //alert("uppercase was clicked!");
     settext(newLtext);
   };
+
+  // let clearText='';
+  const handleClear=()=>{
+    settext(" ");
+  }
+
   const handleOnchange = (event) => {
     //console.log("chnge");
     settext(event.target.value);
+  };
+
+  const handleCopy=()=>{
+  var text=document.getElementById("myBox");
+  text.select();
+  navigator.clipboard.writeText(text.value);
+  };
+
+  const handleXtraspace = () => {
+    let newXtext=text.trim().split(/ +/).join(' ');
+    settext(newXtext);
   };
   return (
     <>
@@ -35,13 +52,22 @@ function Textform(props) {
         <button className="btn btn-primary" onClick={handleClick}>
           Convert to upper case
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLClick}>
+        <button className="btn btn-primary mx-2" onClick={handleLClick}>
           Convert to lower case
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleClear}>
+          Clear text
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+          Copy text
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleXtraspace}>
+          HandleXtraspace
         </button>
       </div>
       <div className="container my-3">
         <h1>Your text summary</h1>
-        <p>{text.split (" ").length } words and {text.length}characters</p>
+        <p>{text.split(" ").length } words and {text.length}characters</p>
         <h2>Preview :</h2> {text}
       </div>
     </>

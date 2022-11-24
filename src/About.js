@@ -5,14 +5,14 @@ function About() {
         color: 'white',
         backgroundColor:'black'
     })
-    const[btntext,setbtntext]=useState("Darkmode")
+    const[btntext,setbtntext]=useState("Lightmode")
   let togglestyle =()=>{
         if(mystyle.color=='white'){
             setmystyle({
                 color: 'black',
                 backgroundColor:'white'
             })
-            setbtntext("Lightmode")
+            setbtntext("Darkmode")
             }
             else
             {
@@ -20,7 +20,7 @@ function About() {
                     color: 'white',
                     backgroundColor:'black'
                 })
-                setbtntext("Darkmode")
+                setbtntext("Lightmode")
 
             }
         }
