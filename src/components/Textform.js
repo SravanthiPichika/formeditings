@@ -37,15 +37,19 @@ function Textform(props) {
   };
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ color: props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
-        <div className="mb-3">
+        <div className="mb-3" >
           <label className="form-label"></label>
           <textarea
             className="form-control"
             value={text}
             id="myBox"
-            rows="3"
+            rows="3" style={{
+              backgroundColor:  props.mode==='dark'?'grey':'white',
+              color: props.mode==='dark'?'white':'black'
+              
+             }}
             onChange={handleOnchange}
           ></textarea>
         </div>
@@ -65,7 +69,7 @@ function Textform(props) {
           HandleXtraspace
         </button>
       </div>
-      <div className="container my-3">
+      <div className="container my-3" style={{color:  props.mode==='dark'?'white':'black'}}>
         <h1>Your text summary</h1>
         <p>{text.split(" ").length } words and {text.length}characters</p>
         <h2>Preview :</h2> {text}
